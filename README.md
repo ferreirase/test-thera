@@ -1,99 +1,153 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# API de Gerenciamento de Pedidos e Produtos
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Uma API RESTful robusta para o gerenciamento de pedidos e produtos, desenvolvida com NestJS e SQLite, seguindo boas práticas de desenvolvimento e organização de código.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Descrição do Projeto
 
-## Description
+Esta API backend fornece operações essenciais para gerenciar produtos e o fluxo de criação e gestão de pedidos, incluindo controle de estoque. A aplicação foi desenvolvida utilizando:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Node.js com NestJS**: Framework robusto para construção de aplicações server-side
+- **SQLite**: Banco de dados leve e eficiente
+- **TypeORM**: ORM para interação com o banco de dados
+- **JWT**: Autenticação baseada em tokens
+- **Swagger**: Documentação interativa da API
+- **Docker**: Containerização da aplicação
 
-## Project setup
+## Funcionalidades
 
-```bash
-$ yarn install
-```
+### Produtos
 
-## Compile and run the project
+- Criação, listagem, detalhamento, atualização e remoção de produtos
+- Controle de estoque
 
-```bash
-# development
-$ yarn run start
+### Pedidos
 
-# watch mode
-$ yarn run start:dev
+- Criação de pedidos com verificação de estoque
+- Cálculo automático do valor total
+- Listagem e detalhamento de pedidos
 
-# production mode
-$ yarn run start:prod
-```
+### Autenticação
 
-## Run tests
+- Registro e login de usuários
+- Proteção de rotas com JWT
+- Validação de credenciais
+
+## Configuração e Execução
+
+### Pré-requisitos
+
+- Docker e Docker Compose instalados
+
+### Executando com Docker
+
+1. Clone o repositório
+2. Navegue até a pasta do projeto
+3. Execute o comando:
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+docker-compose up
 ```
 
-## Deployment
+A aplicação estará disponível em `http://localhost:3000`.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+### Executando sem Docker
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+1. Clone o repositório
+2. Navegue até a pasta do projeto
+3. Instale as dependências:
 
 ```bash
-$ yarn install -g mau
-$ mau deploy
+cd api
+npm install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+4. Execute a aplicação:
 
-## Resources
+```bash
+npm run start:dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+A aplicação estará disponível em `http://localhost:3000`.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## Endpoints da API
 
-## Support
+A documentação completa da API está disponível através do Swagger em `http://localhost:3000/api` quando a aplicação estiver em execução.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Produtos
 
-## Stay in touch
+- `POST /produtos`: Criar um novo produto (requer autenticação)
+- `GET /produtos`: Listar todos os produtos
+- `GET /produtos/:id`: Obter detalhes de um produto específico
+- `PUT /produtos/:id`: Atualizar informações de um produto (requer autenticação)
+- `DELETE /produtos/:id`: Remover um produto (requer autenticação)
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Pedidos
 
-## License
+- `POST /pedidos`: Criar um novo pedido (requer autenticação)
+- `GET /pedidos`: Listar todos os pedidos (requer autenticação)
+- `GET /pedidos/:id`: Obter detalhes de um pedido específico (requer autenticação)
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### Autenticação
+
+- `POST /auth/register`: Registrar um novo usuário
+- `POST /auth/login`: Autenticar um usuário e obter token JWT
+
+## Estrutura do Projeto
+
+```
+api/
+├── src/
+│   ├── common/
+│   │   └── middleware/
+│   │       └── logging/
+│   ├── config/
+│   ├── modules/
+│   │   ├── auth/
+│   │   ├── orders/
+│   │   └── products/
+│   ├── app.module.ts
+│   └── main.ts
+├── test/
+├── Dockerfile
+└── package.json
+```
+
+## Autenticação
+
+A API utiliza autenticação JWT (JSON Web Token). Para acessar endpoints protegidos:
+
+1. Registre um usuário ou faça login para obter um token
+2. Inclua o token no cabeçalho de autorização das requisições:
+   ```
+   Authorization: Bearer seu_token_aqui
+   ```
+
+## Testes
+
+A aplicação inclui testes unitários para a lógica de negócio. Para executar os testes:
+
+```bash
+npm run test
+```
+
+## Middleware de Logging
+
+A aplicação inclui um middleware de logging que registra informações sobre todas as requisições recebidas, incluindo método, URL, timestamp e tempo de resposta.
+
+## Docker
+
+A aplicação está configurada para ser executada em containers Docker:
+
+- O arquivo `docker-compose.yml` orquestra a subida do serviço da aplicação
+- O volume do banco de dados SQLite é persistido para que os dados não sejam perdidos ao derrubar os containers
+- A aplicação é exposta na porta 3000
+
+## Contribuição
+
+Para contribuir com o projeto:
+
+1. Faça um fork do repositório
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Faça commit das suas alterações (`git commit -m 'Adiciona nova feature'`)
+4. Faça push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request

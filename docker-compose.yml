@@ -1,0 +1,19 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+      - sqlite_data:/app/data
+    environment:
+      - NODE_ENV=development
+    command: npm run start:dev
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+    driver: local
